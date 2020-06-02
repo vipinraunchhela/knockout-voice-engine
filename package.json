@@ -9,5 +9,8 @@
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express": "^1.4.1"
+  },
+  "dependencies": {
+    "@ng-select/ng-select": "^4.0.0"
   }
 }

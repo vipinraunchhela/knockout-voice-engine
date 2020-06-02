@@ -1,9 +1,462 @@
 <html>
 <head>
-	<title>voice</title>
+	<title>voice Engine</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
 </head>
 <body>
-<h1>header</h1>
-<p>Text</p>
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+  <section class="body-container">
+  <h2>Voice Engine
+  <div class="header-dropdown">
+    <span>Home</span>
+    <select>
+      <option>Claro, Argentina</option>
+      <option>America</option>
+    </select>
+  </div>
+  </h2>
+  <div class="tab-view">
+    <ul>
+      <li class="active">Usage Metering Rules(4)</li>
+      <li>Group(4)</li>
+      <li>Allowance(8)</li>
+      <li>Call Action(3)</li>
+      <li>Threshold(4)</li>
+    </ul>
+  </div>
+    <div class="filters-row">
+      <div class="search">
+        <input placeholder="search"  data-bind="click: showSearchList, hasfocus: showSearch">
+        <span class="clear-search">x</span>
+        <div class="search-items" data-bind="visible:showSearch">
+          <div class="search-list">
+            <span class="search-heading">Rule (15)</span>
+            <div class="scroll-section" data-bind="foreach:items">
+              <div class="search-list-item" data-bind="text:ruleName"></div>
+            </div>
+          </div>
+          <div class="search-list">
+              <span class="search-heading">Originating From/Terminating To</span>
+              <div class="scroll-section" data-bind="foreach:allowanceList">
+              <div class="search-list-item" data-bind="text:templatesName"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="action-items">
+        <div>
+          <span class="icon-filter"></span>
+        </div>
+        <div class="click-to-action" data-bind="click: showRule">Add Rules</div>
+      </div>
+    </div>
+  <table class="table">
+	  <tr class="head-row">
+	    <th><span class="shorting">Rule Name <span class="icon-sort"></span></span></th>
+	    <th>Originating From</th>
+	    <th>Terminating To</th>
+	    <th><span class="shorting">Allowance/Threshold <span class="icon-sort"></span></span></th>
+	    <th><span class="shorting">Priority <span class="icon-sort"></span></span></th>
+	    <th><span class="shorting">ToD/WoD <span class="icon-sort"></span></span></th>
+	    <th><span class="shorting">Counters <span class="icon-sort"></span></span></th>
+	    <th>Valid Thru</th>
+	    <th></th>
+	  </tr>
+	  <!--  edit mode-->
+	  <tr data-bind="visible:addRule">
+	    <td>
+	      <input type="text" class="rule-name-input" placeholder="Enter rule name">
+	    </td>
+	    <td>
+	    	<select><option>1</option></select>
+	    </td>
+	    <td>
+	    	<select><option>1</option></select>
+	    </td>
+	    <td>
+	      <span class="hyperlink" data-toggle="modal"  data-target="#exampleModal"> Select</span>
+	    </td>
+	    <td>
+	    	<div class="input-group error-section">
+	        <input type="text" class="form-control" placeholder="Enter">
+	        <div class="input-group-append" [class.done]="verified">
+            <span class="input-group-text" 
+            data-bind="click:verifyPriority" 
+            data-toggle="tooltip" 
+            title="Check Availability" [ngClass]="priority? 'active' : 'disable'">
+	            <span class="icon-tick" ></span>
+	          </span>
+	        </div>
+	        <div class="change-priority" data-bind="visible:prioritypopover">
+	          <h3>Priority already in use by:
+	            <div>“VIP Roamers Dubai”</div>
+	          </h3>
+	          <p>System will assign an available priority automatically based on your preference</p>
+	          <ul>
+	            <li class="form-group form-check"><input type="radio" name="setpriority" id="higherPriority"><label for="higherPriority">Assign a higher priority</label></li>
+	            <li class="form-group form-check"><input type="radio" name="setpriority" id="lowerPriority"><label for="lowerPriority">Assign a lower priority</label></li>
+	            <li><span class="assign showError" data-bind="click:setPriority">Assign</span></li>
+	          </ul>
+	        </div>
+	      </div>
+	    </td>
+	    <td data-toggle="modal"  data-target="#todModal"> Yes
+<!--<app-applicabletime-tod-wod-modal></app-applicabletime-tod-wod-modal>-->
+	    </td>
+	    <td> Yes
+<!-- <app-counter-type></app-counter-type>-->
+	    </td>
+	    <td></td>
+	    <td>
+	      <div class="applybtn" (click)="clearfields()">Apply</div>
+	      <div class="discard" data-bind="click: hideRule" >Discard</div>
+	    </td>
+	  </tr>
+	  <tbody data-bind="foreach: items">
+    <tr>
+      <td>
+        <div class="rule-name"
+             data-bind="text:ruleName"></div>
+        <div class="created-date">Created By <span data-bind="text:createdBy"></span>, <span data-bind="text:createdDate"></span></div>
+      </td>
+    <td>
+      <span
+        data-bind="text:originatingFrom"
+        data-html="true"
+        data-toggle="tooltip"
+        data-html="true"
+        title="<div class='text-left'> <strong> South Korea </strong><br> <strong>Sudan</strong> </div>"></span>
+
+    </td>
+    <td data-bind="text:terminateTo"> </td>
+    <td>
+      <span class="hyperlink" >
+        <span data-bind="text:AllowanceThreshold"
+              data-html="true"
+              data-toggle="tooltip" 
+              title="<div class='custom-tooltip-data'><div><span>Name:</span> <strong>A2-1233</strong> </div> <div><span>Periodicity
+      :</span> <strong>Weekly</strong> </div> <div><span>Oroginating Calls:</span> <strong>200</strong> </div> <div><span>Terminating
+      minutes:</span> <strong>500</strong> </div> </div>"></span>/
+        <span class="threshhold-content-tooltip" 
+          data-bind="text:AllowanceThreshold"
+              data-html="true"
+              data-toggle="tooltip"
+              title="<div class='threshhold-content'>
+          <div class='head-line'><span>Name:</span> <strong>A2-1233</strong> </div>
+          <div class='coloumns'>
+          <div><span>Originating Calls</span> <strong>Levels: 4</strong> </div>
+          <div><span>Terminating Calls</span> <strong>Levels: 2</strong> </div>
+          <div><span>Originating Minutes</span> <strong>Levels: 1</strong> </div>
+          <div><span>Terminating Minutes</span> <strong>Levels: 5</strong> </div>
+          </div>
+          </div>"
+        >allowanceThreshold</span>
+      </span>
+     <!--  <ng-template #tipContentThreshhold let-greeting="greeting">
+        <div>
+          <div class="head-line"><span>Name:</span> <strong>A2-1233</strong> </div>
+          <div class="coloumns">
+            <div><span>Originating Calls</span> <strong>Levels: 4</strong> </div>
+            <div><span>Terminating Calls</span> <strong>Levels: 2</strong> </div>
+            <div><span>Originating Minutes</span> <strong>Levels: 1</strong> </div>
+            <div><span>Terminating Minutes</span> <strong>Levels: 5</strong> </div>
+          </div>
+        </div>
+      </ng-template> -->
+    </td>
+    <td><span class="hyperlink" data-bind="text:priority"></span></td>
+    <td><span class="hyperlink"
+              data-bind="text:tod"
+              data-toggle="tooltip"
+              data-html="true"
+              title=" <div class='todTooltip'><div class='head-line'><span>Validty</span> </div> <div class='coloumns'>
+        <strong>0-1 Hr (AM,PM), 1-2 HrS (AM,PM)</strong>
+        <div><span>Days of the Week</span></div>
+        <strong>Monday, Tuesday, Wednesday</strong>
+      </div> </div>"
+              placement="left">TOD</span>
+      <!-- <ng-template #todTooltip>
+        <div class="">
+          <div class="head-line"><span>Validty</span> </div>
+          <div class="coloumns">
+            <strong>0-1 Hr (AM,PM), 1-2 HrS (AM,PM)</strong>
+            <div><span>Days of the Week</span></div>
+            <strong>Monday, Tuesday, Wednesday</strong>
+          </div>
+        </div>
+      </ng-template> -->
+    </td>
+    <td>
+      <span class="hyperlink" [ngbTooltip]="countersTooltip" placement="left" tooltipClass="counterTooltip" data-bind="text:counters" >23456</span>
+     <!--  <ng-template #countersTooltip>
+        <div class="">
+          <div class="head-line"><span>Counter Type</span> </div>
+          <div class="coloumns">
+            <strong>Specific A to Specific B <br/>
+              Group A to Specific B</strong>
+          </div>
+        </div>
+      </ng-template> -->
+    </td>
+      <td class="valid-thru">
+        <span data-bind="text:validThru"></span><br>
+        <span data-bind="text:validThruTime"></span>
+      </td>
+    <td class="relative">
+      <span class="icon-action_dots">
+
+        <div class="custom-popover">
+        <div><span class="hyperlink" (click)="edit()" >Edit</span></div>
+        <div><span class="hyperlink" (click)="deleterow(i)" >Delete</span></div>
+        <div class="toggle-switch">
+          <div>Inactive</div>
+          <div class="switch_button custom">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div></div>Active
+        </div>
+      </div>
+      </span>
+    </td>
+  </tr>
+    </tbody>
+	</table>
+  </section>
+</div>
+
+
+<!-- bootstrap modal -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog  allowance-threshold" role="document">
+        <div class="modal-content">
+          <div>
+            <h2>Allowance/Threshold Templates
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="icon-Combined-Shape-Copy-8"></span>
+              </button>
+            </h2>
+            <div>
+          <div class="flex-box">
+            <div class="allowance-template box">
+              <h4>Allowance Templates (7)</h4>
+              <div class="search">
+                <input type="text" placeholder="Search Allowance" />
+              </div>
+              <ul data-bind="foreach: thresholdList">
+                <li [class.disable]="pushedAllowance[template.id]">
+                  <span 
+                  data-bind="text:templatesName"
+                  data-html="true"
+                  data-toggle="tooltip"
+                  title="<div class='custom-tooltip-data'>
+                      <div><span>Name:</span> <strong>A2-1233</strong> </div>
+                      <div><span>Periodicity:</span> <strong>Weekly</strong> </div>
+                      <div><span>Oroginating Calls:</span> <strong>200</strong> </div>
+                      <div><span>Terminating minutes:</span> <strong>500</strong> </div>
+                    </div>" >{{template.templatesName}}</span>
+                  <span class="select-btn"><input (change)="addToList(template.templatesName, template.id)" type="checkbox" id="{{template.templatesName}}">
+                    <label for="{{template.templatesName}}">Select</label>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="threshold-template box">
+              <h4>Threshold Templates (4)</h4>
+              <div class="search">
+                <input type="text" placeholder="Search Threshold" />
+              </div>
+              <ul data-bind="foreach: allowanceList">
+                <li  [class.disable]="pushedThreshold[template.id]">
+                  <span class="tooltip-view"
+                  data-bind="text:templatesName">
+      
+                    <!-- tooltip on mouse hover-->
+                  <div class="custom-tooltip">
+                    <div>Name: <strong>TH-105</strong> </div>
+                    <div class="coloumns">
+                      <div class="header">Originating Calls</div>
+                      <div class="row-section">
+                        <ul>
+                          <li>Level 1: 80%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+      
+                        </ul>
+                        <ul>
+                          <li>Level 2: 10%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+                        </ul>
+                        <ul>
+                          <li>Level 3: 10%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="coloumns">
+                      <div class="header">Terminating Calls</div>
+                      <div class="row-section">
+                        <ul>
+                          <li>Level 1: 80%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+                        </ul>
+                        <ul>
+                          <li>Level 2: 10%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="coloumns">
+                      <div class="header">Terminating Calls</div>
+                      <div class="row-section">
+                        <ul>
+                          <li>Level 1: 80%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+                        </ul>
+                        <ul>
+                          <li>Level 2: 10%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="coloumns">
+                      <div class="header">Terminating Calls</div>
+                      <div class="row-section">
+                        <ul>
+                          <li>Level 1: 80%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+                        </ul>
+                        <ul>
+                          <li>Level 2: 10%</li>
+                          <li>SMS to Subscriber<br/>SMS-2200</li>
+                          <li>SMS to Admin<br/>SMS-2200<br/>4 Recipients </li>
+                        </ul>
+                      </div>
+                    </div>
+      
+                  </div>
+                    <!-- tooltip close-->
+                  </span>
+                  <span class="select-btn"><input type="checkbox" (change)="addToThresholdList(template.templatesName, template.id)" id="{{template.id}}">
+                    <label for="{{template.id}}">Select</label>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <span class="move-right" (click)="addToRule()"
+                  [class.disable]="!selectedAllowanceTemplate || !selectedThresholdTemplate">
+              <span class="icon-Shape2"></span>
+            </span>
+            <div class="selected-templates">
+              <ul>
+                <li>
+                  B1|A1
+                  <span class="icon-bin"></span>
+                </li>
+                <!-- <li *ngIf="results.length ==0" class="no-data-found">No Allowance Threshold pairs slected yet</li> -->
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer"><button class="btn btn-primary" data-dismiss="modal" aria-label="Close">Done</button> </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- tod modal -->
+<!-- bootstrap modal -->
+<div class="modal fade tod-modal " id="todModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  " role="document">
+    <div class="modal-content">
+      <div class="title_modal header_modal">
+        <h2>Applicable Time (ToD/WoD)
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="icon-Combined-Shape-Copy-8"></span>
+          </button>
+        </h2>
+      </div>
+      <div class="modal_body">
+        <div class="time_window">
+          <h2>Applicable Time Window</h2>
+          <div class="switch_button">
+            <span [class.active]="!isApplicableTimeWindow">No</span>
+            <label class="switch">
+              <input type="checkbox" (click)="onSwitch()" [checked]="isApplicableTimeWindow">
+              <span class="slider round"></span>
+            </label>
+            <span [class.active]="isApplicableTimeWindow">Yes</span>
+          </div>
+    
+        </div>
+        <div [class.disabled]="!isApplicableTimeWindow">
+          <div class="select_box" [class.disable]="!isApplicableTimeWindow">
+            <div class="title">
+              Validity
+            </div>
+            <div class="select_dropdown" (click)="showHoursDropdown()">
+              <ng-container>Select Hour</ng-container>
+              <ng-container>
+                <div class="chip">
+                  0-1 Am PM
+                  <span class="icon-cross_tags" (click)="removeFilter(i)"></span>
+                </div>
+              </ng-container>
+            </div>
+            <div class="dropdown_list_wrap scrollbar">
+                <ul class="dropdown_list">
+                  <li (click)="chips()">
+                    <span class="time_slot">0-1</span>
+                    <label class="for_checkbox">
+                      <input type="checkbox" class="for_am checkbox">
+                      <div class="custom_checkbox">AM</div>
+                    </label>
+                    <label class="for_checkbox">
+                      <input type="checkbox" class="for_am checkbox">
+                      <div class="custom_checkbox">PM</div>
+                    </label>
+                  </li>
+                </ul>
+            </div>
+          </div>
+          <div class="select_box">
+            <div class="title">
+              Days of the Week
+            </div>
+          </div>
+        </div>
+        <button class="click-to-action save_action_btn" (click)="onSave()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+          
+
+
+<script type="text/javascript" src='assets/scripts/jquery-3.5.1.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src='assets/scripts/bootstrap.min.js'></script>
+<script type='text/javascript' src='assets/scripts/knockout-3.5.1.js'></script>
+<script type="text/javascript" src="assets/scripts/main-ko.js"></script>
+<script>  
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.threshhold-content-tooltip').tooltip().addClass({
+      template: '<div class="tooltip threshhold-content" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+    });
+</script>
 </body>
 </html>
