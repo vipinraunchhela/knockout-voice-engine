@@ -2,7 +2,8 @@
 <head>
 	<title>voice Engine</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/multiple-select.css">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
 </head>
 <body>
@@ -48,8 +49,6 @@
       </div>
       <div class="action-items">
         <div>
-          <!-- <span class="icon-filter"></span> -->
-
           <span class="test" style="position: relative">
             <span class="icon-filter" style="position: relative" data-bind="click: showFilterList, clickBubble: false"></span>
             <div class="arrow"></div>
@@ -210,7 +209,6 @@
             </div>
           
           </span>
-
         </div>
         <div class="click-to-action" data-bind="click: showRule">Add Rules</div>
       </div>
@@ -233,10 +231,18 @@
 	      <input type="text" class="rule-name-input" placeholder="Enter rule name">
 	    </td>
 	    <td>
-	    	<select><option>1</option></select>
+        <select name="originatingFrom" data-toggle="multiselect" class="select_dropdown" multiple="multiple" style="display: none;">
+          <option value="Albania_business_travelers">Albania_business_travelers</option>
+          <option value="cirg">Cook Islands_roamers group</option>
+          <option value="Iraq_liesureTravelers">Iraq_liesure travelers</option>
+          <option value="Russia-diplomats">Russia-diplomats</option>
+        </select>
 	    </td>
 	    <td>
-	    	<select><option>1</option></select>
+        <select data-toggle="multiselect" class="select_dropdown" multiple="multiple" style="display: none;">
+          <option value="America">Group B</option>
+          <option value="India">XYZ Group</option>
+        </select>
 	    </td>
 	    <td>
 	      <span class="hyperlink" data-toggle="modal"  data-target="#exampleModal"> Select</span>
@@ -265,10 +271,10 @@
 	        </div>
 	      </div>
 	    </td>
-	    <td data-toggle="modal"  data-target="#todModal"> Yes
+	    <td data-toggle="modal"  data-target="#todModal"> <span class="hyperlink">Yes</span>
 <!--<app-applicabletime-tod-wod-modal></app-applicabletime-tod-wod-modal>-->
 	    </td>
-	    <td> Yes
+	    <td data-toggle="modal" data-target="#counterModal"> <span class="hyperlink">Yes</span>
 <!-- <app-counter-type></app-counter-type>-->
 	    </td>
 	    <td></td>
@@ -421,9 +427,11 @@
                       <div><span>Periodicity:</span> <strong>Weekly</strong> </div>
                       <div><span>Oroginating Calls:</span> <strong>200</strong> </div>
                       <div><span>Terminating minutes:</span> <strong>500</strong> </div>
-                    </div>" >{{template.templatesName}}</span>
-                  <span class="select-btn"><input (change)="addToList(template.templatesName, template.id)" type="checkbox" id="{{template.templatesName}}">
-                    <label for="{{template.templatesName}}">Select</label>
+                    </div>" ></span>
+                  <span class="select-btn"><input (change)="" type="checkbox"
+                    data-bind="attr: { id: templatesName }">
+                    <label 
+                    data-bind="attr: { for: templatesName }">Select</label>
                   </span>
                 </li>
               </ul>
@@ -437,7 +445,6 @@
                 <li  [class.disable]="pushedThreshold[template.id]">
                   <span class="tooltip-view"
                   data-bind="text:templatesName">
-      
                     <!-- tooltip on mouse hover-->
                   <div class="custom-tooltip">
                     <div>Name: <strong>TH-105</strong> </div>
@@ -512,8 +519,10 @@
                   </div>
                     <!-- tooltip close-->
                   </span>
-                  <span class="select-btn"><input type="checkbox" (change)="addToThresholdList(template.templatesName, template.id)" id="{{template.id}}">
-                    <label for="{{template.id}}">Select</label>
+                  <span class="select-btn"><input type="checkbox" 
+                    (change)="addToThresholdList(template.templatesName, template.id)" 
+                    data-bind="attr: { id: templatesName }">
+                    <label data-bind="attr:{for: templatesName}">Select</label>
                   </span>
                 </li>
               </ul>
@@ -543,7 +552,7 @@
 <!-- tod modal -->
 <!-- bootstrap modal -->
 <div class="modal fade tod-modal " id="todModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog  " role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="title_modal header_modal">
         <h2>Applicable Time (ToD/WoD)
@@ -570,25 +579,24 @@
             <div class="title">
               Validity
             </div>
-            <div class="select_dropdown" (click)="showHoursDropdown()">
-              <ng-container>Select Hour</ng-container>
-              <ng-container>
-                <div class="chip">
-                  0-1 Am PM
-                  <span class="icon-cross_tags" (click)="removeFilter(i)"></span>
+            <div class="select_dropdown" 
+            data-bind="click: function(data, event) { showBox(data); event.stopPropagation(); }">
+                <div class="chip" data-bind="visible: showSelectionTag">
+                  0-1 Hr Am,PM
+                  <span class="icon-cross_tags"></span>
                 </div>
-              </ng-container>
             </div>
-            <div class="dropdown_list_wrap scrollbar">
+            <div class="dropdown_list_wrap scrollbar" 
+            data-bind="visible: show, click">
                 <ul class="dropdown_list">
                   <li (click)="chips()">
-                    <span class="time_slot">0-1</span>
+                    <span class="time_slot">0-1 Hrs</span>
                     <label class="for_checkbox">
-                      <input type="checkbox" class="for_am checkbox">
+                      <input type="checkbox" class="for_am checkbox" data-bind="checked: showSelectionTag, click: myAction">
                       <div class="custom_checkbox">AM</div>
                     </label>
                     <label class="for_checkbox">
-                      <input type="checkbox" class="for_am checkbox">
+                      <input type="checkbox" class="for_am checkbox" data-bind="checked: showSelectionTag, click: myAction">
                       <div class="custom_checkbox">PM</div>
                     </label>
                   </li>
@@ -599,6 +607,14 @@
             <div class="title">
               Days of the Week
             </div>
+            <select name="weekDays" id="selectDays" class="select_dropdown" multiple="multiple" style="display: none;">
+              <option value="sun">Sun</option>
+              <option value="mon">Mon</option>
+              <option value="tue">Tue</option>
+              <option value="wed">Wed</option>
+              <option value="thu">Fri</option>
+              <option value="fri">Sat</option>
+            </select>
           </div>
         </div>
         <button class="click-to-action save_action_btn" (click)="onSave()">Save</button>
@@ -606,19 +622,61 @@
     </div>
   </div>
 </div>
-          
 
 
-<script type="text/javascript" src='assets/scripts/jquery-3.5.1.min.js'></script>
+<!-- COunter modal -->
+<div class="modal fade counter-modal" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="title_modal header_modal">
+        <h2>Counter Type
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="icon-Combined-Shape-Copy-8"></span>
+          </button>
+        </h2>
+      </div>
+      <div class="modal_body">
+        <div class="counter_entry_wrap">
+          <ul class="entry_list" data-bind="foreach:counters">
+            <li>
+              <div class="entry_checked">
+                <label class="for_checkbox">
+                  <input type="checkbox" class="checkbox">
+                  <div class="custom_checkbox" data-bind="text:name"></div>
+                </label>
+                <input type="text" class="entry_box" placeholder="Enter">
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button class="click-to-action save_action_btn" (click)="onSave()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src='assets/js/jquery-3.5.1.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script type="text/javascript" src='assets/scripts/bootstrap.min.js'></script>
-<script type='text/javascript' src='assets/scripts/knockout-3.5.1.js'></script>
-<script type="text/javascript" src="assets/scripts/main-ko.js"></script>
+<!-- <script type="text/javascript" src="assets/scripts/multiple-select.min.js"></script> -->
+<script type="text/javascript" src="assets/js/BsMultiSelect.min.js"></script>
+<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='assets/js/knockout-3.5.1.js'></script>
+<script type="text/javascript" src="scripts/usage-metering-rules.js"></script>
 <script>  
-    $('[data-toggle="tooltip"]').tooltip();
-    $('.threshhold-content-tooltip').tooltip().addClass({
-      template: '<div class="tooltip threshhold-content" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+  $('[data-toggle="tooltip"]').tooltip();
+  $('.threshhold-content-tooltip').tooltip().addClass({
+    template: '<div class="tooltip threshhold-content" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+  });
+  $(function() { 
+    $("#selectDays").bsMultiSelect({
+      placeholder:'Select Days',
     });
+
+    $('[data-toggle="multiselect"]').bsMultiSelect({
+      placeholder:'Select'
+    });
+  });
 </script>
 </body>
 </html>

@@ -1069,6 +1069,7 @@ ul {
               line-height: 17px;
               margin-top: 12px;
             }
+            
             ul{
               margin: 0;
               padding: 0;
@@ -1318,7 +1319,97 @@ ul {
     margin-left: 4px;
   }
 }
+}
+td .dashboardcode-bsmultiselect .form-control {
+  width: 180px;
+}
 
+.dashboardcode-bsmultiselect{
+  .form-control {
+    font-size: 12px;
+    width: 326px;
+    min-height: 26px !important;
+    padding: 3px 7px;
+    .form-control{
+      min-height: 20px !important;
+      height: 20px !important;
+    }
+  }
+  .badge {
+      background: #E6E6E6;
+      margin-right: 3px;
+      padding: 0px 18px 0 4px !important;
+      text-align: center;
+      color: #333333;
+      font-size: 12px;
+      letter-spacing: 0;
+      font-weight: normal;
+      > span{
+        max-width: 120px;
+        overflow: hidden;
+        display: inline-block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+  }
+  .close {
+      display: inline-block;
+      float: right !important;
+      margin-left: 4px;
+      position: absolute;
+    }
+  .dropdown-menu li{
+    color: #333333;
+  font-family: "Open Sans";
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 24px;
+  }
+}
+
+#originatingFrom {
+  width: 200px;
+}
+.counter-modal{
+  .entry_list {
+    margin-bottom: 33px;
+
+    .entry_checked {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+
+      .for_checkbox {
+        max-width: max-content;
+      }
+
+      .entry_box {
+        margin-left: 18px;
+        box-sizing: border-box;
+        height: 26px;
+        width: 120px;
+        border: 1px solid #E6E6E6;
+        border-radius: 2px;
+        background-color: #FFFFFF;
+        color: #A5A5A5;
+        font-size: 12px;
+        line-height: 17px;
+        padding: 5px 8px;
+        outline: none;
+        margin-top: 4px;
+
+        &[readonly] {
+          background-color: #E6E6E6;
+        }
+
+        &::placeholder {
+          color: #A5A5A5;
+          opacity: 1;
+        }
+      }
+
+    }
+  }
 }
 
 
