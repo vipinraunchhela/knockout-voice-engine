@@ -48,7 +48,169 @@
       </div>
       <div class="action-items">
         <div>
-          <span class="icon-filter"></span>
+          <!-- <span class="icon-filter"></span> -->
+
+          <span class="test" style="position: relative">
+            <span class="icon-filter" style="position: relative" data-bind="click: showFilterList, clickBubble: false"></span>
+            <div class="arrow"></div>
+            <div class="filter-app"  data-bind="visible:showFilter">
+                <div class="row m-0">
+                  <div class="col-md-12 pl-0 pr-0">
+                    <p class="heading-filter">Filter</p>
+                  </div>
+                  <div class="col-md-5 pl-0 pr-0">
+                    <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab"
+                           id="first-tab"
+                           href="#first" role="tab"
+                           aria-selected="true">Allowance Name</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab"
+                           id="second-tab"
+                           href="#second" role="tab"
+                           aria-selected="true">Periodicity</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-7 pl-0 pr-0">
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active"
+                           id="first" role="tabpanel">
+                        <div class="row m-0 pt-3 position-relative">
+                          <input class="form-control" type="text" placeholder="Search by Name"/>
+                          <span class="icon-search"></span>
+                        </div>
+          
+                        <!--Multi Select Template-->
+          
+                        <div class="filter-attribute">
+                          <div class="position-relative">
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check1"
+                               name="checkbox">
+                        <label for="check1" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check2"
+                               name="checkbox">
+                        <label for="check2" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check3"
+                               name="checkbox">
+                        <label for="check3" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check4"
+                               name="checkbox">
+                        <label for="check4" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check5"
+                               name="checkbox">
+                        <label for="check5" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          
+                      <div class="tab-pane fade show"
+                           id="second" role="tabpanel">
+                        <div class="row m-0 pt-3 position-relative">
+                          <input class="form-control" type="text" placeholder="Search by Name"/>
+                          <span class="icon-search"></span>
+                        </div>
+          
+                        <!--Multi Select Template-->
+          
+                        <div class="filter-attribute">
+                          <div class="position-relative">
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check11"
+                               name="checkbox">
+                        <label for="check11" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check21"
+                               name="checkbox">
+                        <label for="check21" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check31"
+                               name="checkbox">
+                        <label for="check31" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check41"
+                               name="checkbox">
+                        <label for="check41" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check51"
+                               name="checkbox">
+                        <label for="check51" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter-footer">
+                    <button
+                            class="btn btn-primary ml-3 text-center font-weight-bold position-relative">
+                      Apply
+                    </button>
+                    <button class="btn btn-primary btn-transparent  font-weight-bold text-center">
+                      Clear All
+                    </button>
+                  </div>
+                </div>
+            </div>
+          
+          </span>
+
         </div>
         <div class="click-to-action" data-bind="click: showRule">Add Rules</div>
       </div>

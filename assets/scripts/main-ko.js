@@ -4,8 +4,9 @@ function AppViewModel() {
   var self = this;
 
   self.addRule = ko.observable(false);
-  self.showSearch = ko.observable(false)
-  self.prioritypopover = ko.observable(false)
+  self.showSearch = ko.observable(false);
+  self.prioritypopover = ko.observable(false);
+  self.showFilter = ko.observable(false);
   self.showRule = function () {
       self.addRule(true);
   }
@@ -21,6 +22,9 @@ function AppViewModel() {
   self.showSearchList = function () {
       self.showSearch(true);
   }
+  self.showFilterList = function () {
+    self.showFilter(!self.showFilter());
+};
 
     this.items = ko.observableArray([
         {
@@ -136,6 +140,19 @@ function AppViewModel() {
       ]);
 }
 
+// var viewModel = function()
+// {
+//     self = this;
+//     self.show =  ko.observable(false);
+//     self.showBox = function(){
+//             self.show(true);
+//      };
+//      $("body").on("click", function(){
+//          self.show(false);
+//      });
+// }
+
+// ko.applyBindings(new viewModel());
 
 // Activates knockout.js
 ko.applyBindings(new AppViewModel());
