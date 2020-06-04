@@ -4,7 +4,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/styles/multiple-select.css">
   <link rel="stylesheet" type="text/css" href="assets/style.css">
-	<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/group.css">
 </head>
 <body>
 <!--The content below is only a placeholder and can be replaced.-->
@@ -21,8 +22,8 @@
   </h2>
   <div class="tab-view">
     <ul>
-      <li class="active">Usage Metering Rules(4)</li>
-      <li>Group(4)</li>
+      <li>Usage Metering Rules(4)</li>
+      <li class="active">Group(4)</li>
       <li>Allowance(8)</li>
       <li>Call Action(3)</li>
       <li>Threshold(4)</li>
@@ -215,14 +216,13 @@
     </div>
   <table class="table">
 	  <tr class="head-row">
-	    <th><span class="shorting">Rule Name <span class="icon-sort"></span></span></th>
-	    <th>Originating From</th>
-	    <th>Terminating To</th>
-	    <th><span class="shorting">Allowance/Threshold <span class="icon-sort"></span></span></th>
-	    <th><span class="shorting">Priority <span class="icon-sort"></span></span></th>
-	    <th><span class="shorting">ToD/WoD <span class="icon-sort"></span></span></th>
-	    <th><span class="shorting">Counters <span class="icon-sort"></span></span></th>
-	    <th>Valid Thru</th>
+	    <th><span class="shorting">Group Name <span class="icon-sort"></span></span></th>
+	    <th>Countries(CC)</th>
+	    <th>Network(NDC)</th>
+	    <th><span class="shorting">CoS <span class="icon-sort"></span></span></th>
+	    <th><span class="shorting">Number <span class="icon-sort"></span></span></th>
+	    <th><span class="shorting">Thrunk <span class="icon-sort"></span></span></th>
+	    <th><span class="shorting">SIP Tag <span class="icon-sort"></span></span></th>
 	    <th></th>
 	  </tr>
 	  <!--  edit mode-->
@@ -245,39 +245,22 @@
         </select>
 	    </td>
 	    <td>
-	      <span class="hyperlink" data-toggle="modal"  data-target="#exampleModal"> Select</span>
+        <select data-toggle="multiselect" class="select_dropdown" multiple="multiple" style="display: none;">
+          <option value="America">VIP Subascriber</option>
+          <option value="India">Business Executive</option>
+          <option value="Politician">Politician</option>
+          <option value="Diplomats">Diplomats</option>
+        </select>
 	    </td>
 	    <td>
-	    	<div class="input-group error-section">
-	        <input type="text" class="form-control" placeholder="Enter">
-	        <div class="input-group-append" [class.done]="verified">
-            <span class="input-group-text" 
-            data-bind="click:verifyPriority" 
-            data-toggle="tooltip" 
-            title="Check Availability" [ngClass]="priority? 'active' : 'disable'">
-	            <span class="icon-tick" ></span>
-	          </span>
-	        </div>
-	        <div class="change-priority" data-bind="visible:prioritypopover">
-	          <h3>Priority already in use by:
-	            <div>“VIP Roamers Dubai”</div>
-	          </h3>
-	          <p>System will assign an available priority automatically based on your preference</p>
-	          <ul>
-	            <li class="form-group form-check"><input type="radio" name="setpriority" id="higherPriority"><label for="higherPriority">Assign a higher priority</label></li>
-	            <li class="form-group form-check"><input type="radio" name="setpriority" id="lowerPriority"><label for="lowerPriority">Assign a lower priority</label></li>
-	            <li><span class="assign showError" data-bind="click:setPriority">Assign</span></li>
-	          </ul>
-	        </div>
-	      </div>
+	    	<span class="hyperlink" data-toggle="modal"  data-target="#numberModal">Select</span>
 	    </td>
-	    <td data-toggle="modal"  data-target="#todModal"> <span class="hyperlink">Yes</span>
+	    <td data-toggle="modal" >-</span>
 <!--<app-applicabletime-tod-wod-modal></app-applicabletime-tod-wod-modal>-->
 	    </td>
-	    <td data-toggle="modal" data-target="#counterModal"> <span class="hyperlink">Yes</span>
+	    <td data-toggle="modal" data-target="#sipModal"> <span class="hyperlink">Enter SIP</span>
 <!-- <app-counter-type></app-counter-type>-->
 	    </td>
-	    <td></td>
 	    <td>
 	      <div class="applybtn" (click)="clearfields()">Apply</div>
 	      <div class="discard" data-bind="click: hideRule" >Discard</div>
@@ -369,10 +352,6 @@
         </div>
       </ng-template> -->
     </td>
-      <td class="valid-thru">
-        <span data-bind="text:validThru"></span><br>
-        <span data-bind="text:validThruTime"></span>
-      </td>
     <td class="relative">
       <span class="icon-action_dots">
 
@@ -551,105 +530,99 @@
 
 <!-- tod modal -->
 <!-- bootstrap modal -->
-<div class="modal fade tod-modal " id="todModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade tod-modal " id="numberModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="title_modal header_modal">
-        <h2>Applicable Time (ToD/WoD)
+        <h2>Numbers
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="icon-Combined-Shape-Copy-8"></span>
           </button>
         </h2>
       </div>
-      <div class="modal_body">
-        <div class="time_window">
-          <h2>Applicable Time Window</h2>
-          <div class="switch_button">
-            <span [class.active]="!isApplicableTimeWindow">No</span>
-            <label class="switch">
-              <input type="checkbox" (click)="onSwitch()" [checked]="isApplicableTimeWindow">
-              <span class="slider round"></span>
-            </label>
-            <span [class.active]="isApplicableTimeWindow">Yes</span>
+      <div class="modal_body number-modal">
+        <div class="row">
+          <div class="col-md-4">
+            <input type="radio" name="selectType" id="singleNumber" value="singleNumber"
+            data-bind="checked: radioSelectedOptionValue" >
+            <label for="singleNumber">Single Number</label>
           </div>
-    
-        </div>
-        <div [class.disabled]="!isApplicableTimeWindow">
-          <div class="select_box" [class.disable]="!isApplicableTimeWindow">
-            <div class="title">
-              Validity
-            </div>
-            <div class="select_dropdown" 
-            data-bind="click: function(data, event) { showBox(data); event.stopPropagation(); }">
-                <div class="chip" data-bind="visible: showSelectionTag">
-                  0-1 Hr Am,PM
-                  <span class="icon-cross_tags"></span>
-                </div>
-            </div>
-            <div class="dropdown_list_wrap scrollbar" 
-            data-bind="visible: show, click">
-                <ul class="dropdown_list">
-                  <li (click)="chips()">
-                    <span class="time_slot">0-1 Hrs</span>
-                    <label class="for_checkbox">
-                      <input type="checkbox" class="for_am checkbox" data-bind="checked: showSelectionTag, click: myAction">
-                      <div class="custom_checkbox">AM</div>
-                    </label>
-                    <label class="for_checkbox">
-                      <input type="checkbox" class="for_am checkbox" data-bind="checked: showSelectionTag, click: myAction">
-                      <div class="custom_checkbox">PM</div>
-                    </label>
-                  </li>
-                </ul>
-            </div>
+          <div class="col-md-4">
+            <input type="radio" name="selectType" id="range" value="rangeType"
+            data-bind="checked: radioSelectedOptionValue" >
+            <label for="range">Range</label>
           </div>
-          <div class="select_box">
-            <div class="title">
-              Days of the Week
-            </div>
-            <select name="weekDays" id="selectDays" class="select_dropdown" multiple="multiple" style="display: none;">
-              <option value="sun">Sun</option>
-              <option value="mon">Mon</option>
-              <option value="tue">Tue</option>
-              <option value="wed">Wed</option>
-              <option value="thu">Fri</option>
-              <option value="fri">Sat</option>
-            </select>
+          <div class="col-md-4">
+            <input type="radio" name="selectType" id="bulkUpload" value="bulkUpload"
+            data-bind="checked: radioSelectedOptionValue">
+            <label for="bulkUpload">Bulk Upload</label>
           </div>
         </div>
-        <button class="click-to-action save_action_btn" (click)="onSave()">Save</button>
+        <div data-bind="text: radioSelectedOptionValue"></div>
+        <!-- Single Number -->
+        <div class="row single-number" >
+          <div class="col-md-12">
+            <label class="tags">Single Number</label>
+            <input class="form-element" placeholder=""/>
+            <span class="note">For multiple numbers seperate them with (,)</span>
+          </div>
+        </div>
+       
+        <!-- range section -->
+        <div class="row range-section">
+          <div class="col-md-6">
+            <label class="tags">From Number</label>
+            <input class="form-element" placeholder="" />
+          </div>
+          <div class="col-md-6">
+            <label class="tags">To Number</label>
+            <input class="form-element" placeholder="" />
+          </div>
+        </div>
+        <!-- bulk section -->
+        <div  class="row bulk-section">
+          <div class="col-md-7">
+            <div class="upload-file">
+              <label for="upload-file">Browse-file</label>
+              <span class="file-name">xyz.csv</span>
+              <input type="file" name="photo" id="upload-file" />
+            </div>
+          </div>
+          <div class="col-md-5">
+            <button class="btn btn-primary">Upload</button>
+          </div>
+        </div>
+        <button class="click-to-action save_action_btn">Okay</button>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- COunter modal -->
-<div class="modal fade counter-modal" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- SIP modal -->
+<div class="modal fade counter-modal" id="sipModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="title_modal header_modal">
-        <h2>Counter Type
+        <h2>SIP Tag
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="icon-Combined-Shape-Copy-8"></span>
           </button>
         </h2>
       </div>
       <div class="modal_body">
-        <div class="counter_entry_wrap">
-          <ul class="entry_list" data-bind="foreach:counters">
-            <li>
-              <div class="entry_checked">
-                <label class="for_checkbox">
-                  <input type="checkbox" class="checkbox">
-                  <div class="custom_checkbox" data-bind="text:name"></div>
-                </label>
-                <input type="text" class="entry_box" placeholder="Enter">
-              </div>
-            </li>
-          </ul>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="tags">Tag Name</label>
+            <input class="form-element" placeholder="" />
+          </div>
+          <div class="col-md-6">
+            <label class="tags">Tag Value</label>
+            <input class="form-element" placeholder="" />
+          </div>
         </div>
-        <button class="click-to-action save_action_btn" (click)="onSave()">Save</button>
+        <br/>
+        <button class="click-to-action save_action_btn" (click)="onSave()">Done</button>
       </div>
     </div>
   </div>
@@ -663,6 +636,7 @@
 <script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
 <script type='text/javascript' src='assets/js/knockout-3.5.1.js'></script>
 <script type="text/javascript" src="models/usagemeteringModel.js"></script>
+<script type="text/javascript" src="models/groupsModel.js"></script>
 <script>  
   $(function() { 
     $('[data-toggle="tooltip"]').tooltip();

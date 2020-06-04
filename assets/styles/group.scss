@@ -1,0 +1,90 @@
+.tags{
+  color: #333333;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+  & + input{
+    border: 1px solid #E6E6E6;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+  }
+}
+.number-modal{
+    label{
+        color: #333333;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 19px;
+    }
+}
+.upload-file{
+    border: 1px solid #E6E6E6;
+    display: flex;
+    width: 240px;
+    > {
+        flex-grow:1;
+    }
+    label{
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 19px;
+        margin-bottom: 0;
+        padding: 5px 15px;
+        color: #3986FA;
+    }
+    .file-name{
+        color: #333333;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 17px;
+        background-color: #F0F0F0;
+        flex-grow: 1;
+        line-height: 19px;
+        padding: 5px;
+    }
+    input[type="file"]{
+        display: none;
+    }
+}
+.bulk-section {
+    height: 120px;
+    padding-top: 20px;
+}
+.range-section{
+    height: 120px;
+    padding-top: 32px;
+    label{
+        color: #333333;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 17px;
+        display: block;
+        margin-bottom: 0;
+    }
+    input{
+        color: #333333;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 18px;
+        border: 1px solid #E6E6E6;
+        border-radius: 2px;
+        background-color: #FFFFFF;
+        width: 100%;
+        padding: 3px 10px;
+    }
+}
+.single-number{
+    height: 120px;
+    padding-top: 32px;
+    .note{
+    color: #A5A5A5;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 17px;
+    }
+    label,
+    input{
+        display: block;
+        width: 100%;
+    }
+}

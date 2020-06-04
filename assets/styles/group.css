@@ -1,0 +1,109 @@
+.tags {
+  color: #333333;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.tags + input {
+  border: 1px solid #E6E6E6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.number-modal label {
+  color: #333333;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.upload-file {
+  border: 1px solid #E6E6E6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 240px;
+}
+
+.upload-file > {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.upload-file label {
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 19px;
+  margin-bottom: 0;
+  padding: 5px 15px;
+  color: #3986FA;
+}
+
+.upload-file .file-name {
+  color: #333333;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+  background-color: #F0F0F0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 19px;
+  padding: 5px;
+}
+
+.upload-file input[type="file"] {
+  display: none;
+}
+
+.bulk-section {
+  height: 120px;
+  padding-top: 20px;
+}
+
+.range-section {
+  height: 120px;
+  padding-top: 32px;
+}
+
+.range-section label {
+  color: #333333;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+  display: block;
+  margin-bottom: 0;
+}
+
+.range-section input {
+  color: #333333;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 18px;
+  border: 1px solid #E6E6E6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  width: 100%;
+  padding: 3px 10px;
+}
+
+.single-number {
+  height: 120px;
+  padding-top: 32px;
+}
+
+.single-number .note {
+  color: #A5A5A5;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.single-number label,
+.single-number input {
+  display: block;
+  width: 100%;
+}
+/*# sourceMappingURL=group.css.map */
