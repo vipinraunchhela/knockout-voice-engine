@@ -1,0 +1,359 @@
+<html>
+<head>
+	<title>voice Engine</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/styles/multiple-select.css">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+</head>
+<body>
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+  <section class="body-container">
+  <h2>Voice Engine
+  <div class="header-dropdown">
+    <span>Home</span>
+    <select>
+      <option>Claro, Argentina</option>
+      <option>America</option>
+    </select>
+  </div>
+  </h2>
+  <div class="tab-view">
+    <ul>
+      <li>Usage Metering Rules(4)</li>
+      <li>Group(4)</li>
+      <li class="active">Allowance(8)</li>
+      <li>Call Action(3)</li>
+      <li>Threshold(4)</li>
+    </ul>
+  </div>
+    <div class="filters-row">
+      <div class="search">
+        <input placeholder="search"  data-bind="click: showSearchList, hasfocus: showSearch">
+        <span class="clear-search">x</span>
+        <div class="search-items" data-bind="visible:showSearch">
+          <div class="search-list">
+            <span class="search-heading">Rule (15)</span>
+            <div class="scroll-section" data-bind="foreach:items">
+              <div class="search-list-item" data-bind="text:callActionName"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="action-items">
+        <div>
+          <span class="test" style="position: relative">
+            <span class="icon-filter" style="position: relative" data-bind="click: showFilterList, clickBubble: false"></span>
+            <div class="arrow"></div>
+            <div class="filter-app"  data-bind="visible:showFilter">
+                <div class="row m-0">
+                  <div class="col-md-12 pl-0 pr-0">
+                    <p class="heading-filter">Filter</p>
+                  </div>
+                  <div class="col-md-5 pl-0 pr-0">
+                    <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab"
+                           id="first-tab"
+                           href="#first" role="tab"
+                           aria-selected="true">Allowance Name</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab"
+                           id="second-tab"
+                           href="#second" role="tab"
+                           aria-selected="true">Periodicity</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-7 pl-0 pr-0">
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active"
+                           id="first" role="tabpanel">
+                        <div class="row m-0 pt-3 position-relative">
+                          <input class="form-control" type="text" placeholder="Search by Name"/>
+                          <span class="icon-search"></span>
+                        </div>
+          
+                        <!--Multi Select Template-->
+          
+                        <div class="filter-attribute">
+                          <div class="position-relative">
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check1"
+                               name="checkbox">
+                        <label for="check1" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check2"
+                               name="checkbox">
+                        <label for="check2" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check3"
+                               name="checkbox">
+                        <label for="check3" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check4"
+                               name="checkbox">
+                        <label for="check4" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check5"
+                               name="checkbox">
+                        <label for="check5" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          
+                      <div class="tab-pane fade show"
+                           id="second" role="tabpanel">
+                        <div class="row m-0 pt-3 position-relative">
+                          <input class="form-control" type="text" placeholder="Search by Name"/>
+                          <span class="icon-search"></span>
+                        </div>
+          
+                        <!--Multi Select Template-->
+          
+                        <div class="filter-attribute">
+                          <div class="position-relative">
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check11"
+                               name="checkbox">
+                        <label for="check11" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check21"
+                               name="checkbox">
+                        <label for="check21" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check31"
+                               name="checkbox">
+                        <label for="check31" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check41"
+                               name="checkbox">
+                        <label for="check41" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check51"
+                               name="checkbox">
+                        <label for="check51" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter-footer">
+                    <button
+                            class="btn btn-primary ml-3 text-center font-weight-bold position-relative">
+                      Apply
+                    </button>
+                    <button class="btn btn-primary btn-transparent  font-weight-bold text-center">
+                      Clear All
+                    </button>
+                  </div>
+                </div>
+            </div>
+          
+          </span>
+        </div>
+        <div class="click-to-action" data-bind="click: showRule">Add Rules</div>
+      </div>
+    </div>
+  <table class="table">
+	  <tr class="head-row">
+	    <th class="w-10"><span class="shorting">Call Action Name <span class="icon-sort"></span></span></th>
+	    <th class="w-20">Call Action</th>
+	    <th></th>
+	  </tr>
+	  <!--  edit mode-->
+	  <tr data-bind="visible:addRule">
+	    <td>
+	      <input type="text" class="rule-name-input" placeholder="Enter rule name">
+	    </td>
+	    <td>
+            <span class="hyperlink" data-toggle="modal"  data-target="#billCycle"> Select</span>
+	    </td>
+	    <td class="text-right">
+	      <div class="applybtn" (click)="clearfields()">Apply</div>
+	      <div class="discard" data-bind="click: hideRule" >Discard</div>
+	    </td>
+	  </tr>
+	  <tbody data-bind="foreach: items">
+    <tr>
+      <td>
+        <div class="rule-name"
+             data-bind="text:callActionName"></div>
+        <div class="created-date">Edited By <span data-bind="text:editedBy"></span>, <span data-bind="text:editedDate"></span></div>
+      </td>
+    <td data-bind="text:callAction"> </td>
+    <td class="relative text-right">
+      <span class="icon-action_dots">
+
+        <div class="custom-popover">
+        <div><span class="hyperlink">Edit</span></div>
+        <div><span class="hyperlink" >Delete</span></div>
+        <div class="toggle-switch">
+          <div>Inactive</div>
+          <div class="switch_button custom">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div></div>Active
+        </div>
+      </div>
+      </span>
+    </td>
+  </tr>
+    </tbody>
+	</table>
+  </section>
+</div>
+
+
+<!-- Call-cycle modal -->
+<!-- <div class="modal fade counter-modal call-cycle" id="billCycle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="title_modal header_modal">
+        <h2>Periodicity
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="icon-Combined-Shape-Copy-8"></span>
+          </button>
+        </h2>
+      </div>
+      <div class="modal_body">
+        <div class="counter_entry_wrap">
+          <ul class="entry_list">
+              <li>
+                <div class="entry_checked">
+                  <label class="for_checkbox">
+                    <input type="radio" name="cycle" class="checkbox">
+                    <div class="custom_checkbox">Hourly</div>
+                  </label>
+                </div>
+                <div class="entry_checked">
+                    <label class="for_checkbox">
+                      <input type="radio" name="cycle" class="checkbox">
+                      <div class="custom_checkbox">Daily</div>
+                    </label>
+                  </div>
+                  <div class="entry_checked">
+                    <label class="for_checkbox">
+                      <input type="radio" name="cycle" class="checkbox">
+                      <div class="custom_checkbox">Monthly</div>
+                    </label>
+                  </div>
+                  <div class="entry_checked">
+                    <label class="for_checkbox">
+                      <input type="radio" name="cycle" class="checkbox">
+                      <div class="custom_checkbox">Weekly</div>
+                    </label>
+                  </div>
+                <div class="entry_checked">
+                    <label class="for_checkbox">
+                      <input type="radio" name="cycle" class="checkbox">
+                      <div class="custom_checkbox">n-HourMoving</div>
+                    </label>
+                    <input type="text" class="entry_box" placeholder="Enter">
+                  </div>
+                  <div class="entry_checked">
+                    <label class="for_checkbox">
+                      <input type="radio" name="cycle" class="checkbox">
+                      <div class="custom_checkbox">Bill Cycle</div>
+                    </label>
+                    <div class="select_box_multiple">
+                        <select name="weekDays" id="selectDays1" class="select_dropdown" multiple="multiple" style="display: none;">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                        </select>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+        </div>
+        <button class="click-to-action save_action_btn" (click)="onSave()">Save</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<script type="text/javascript" src='assets/js/jquery-3.5.1.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- <script type="text/javascript" src="assets/scripts/multiple-select.min.js"></script> -->
+<script type="text/javascript" src="assets/js/BsMultiSelect.min.js"></script>
+<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='assets/js/knockout-3.5.1.js'></script>
+<script type="text/javascript" src="models/callactionModel.js"></script>
+<script>  
+  $(function() { 
+    $('[data-toggle="tooltip"]').tooltip();
+    $("#selectDays").bsMultiSelect({
+      placeholder:'Select Days',
+    });
+
+    $("#selectDays1").bsMultiSelect({
+      placeholder:'Select Days',
+    });
+
+    $('[data-toggle="multiselect"]').bsMultiSelect({
+      placeholder:'Select'
+    });
+  });
+</script>
+</body>
+</html>

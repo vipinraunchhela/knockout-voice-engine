@@ -447,6 +447,7 @@ body {
   }
 }
 
+
 ul {
   list-style: none;
   padding: 0;
@@ -741,6 +742,21 @@ ul {
     letter-spacing: 0;
     line-height: 17px;
     vertical-align: middle;
+    .rule-position-relative{
+      position: relative;
+      display: inline-block;
+      .label-tag{
+        position: absolute;
+        right: 5px;
+        top: 4px;
+        font-size: 10px;
+        color: #999;
+      }
+      input{
+        width: 160px;
+        padding: 0 30px 0 10px;
+      }
+    }
     .hyperlink{
       font-weight: 600;
     }
@@ -1412,6 +1428,42 @@ td .dashboardcode-bsmultiselect .form-control {
   }
 }
 
+.select_box_multiple{
+  margin-left: 18px;
+  margin-top: 2px;
+  .dashboardcode-bsmultiselect .form-control{
+    width: 120px !important;
+  }
+}
 
-
+.call-cycle{
+  .for_checkbox {
+    .checkbox:checked + .custom_checkbox:after {
+        content: "";
+        position: absolute;
+        left: 1.5px;
+        color: #fff;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        top: 9px;
+        left: 3px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: white;
+    }
+    .custom_checkbox {
+      &:before {
+        border-radius: 15px ;
+      }
+    }
+}
+}
+.w-10{
+  width: 10%;
+}
+.w-20{
+  width: 20%;
+}
 
