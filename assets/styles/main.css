@@ -1920,6 +1920,51 @@ td .dashboardcode-bsmultiselect .form-control {
   border-radius: 15px;
 }
 
+.call-action-section-modal .modal-dialog {
+  width: 450px;
+}
+
+.call-action-section-modal .call-action-list {
+  margin-bottom: 12px;
+}
+
+.call-action-section-modal .call-action-list .call-action-input-tag {
+  position: relative;
+}
+
+.call-action-section-modal .call-action-list .call-action-input-tag .call-percent-label {
+  position: absolute;
+  font-size: 12px;
+  color: #999;
+  right: 5px;
+  top: 4px;
+}
+
+.call-action-section-modal .call-action-list .call-action-label {
+  position: relative;
+  padding-left: 18px;
+  color: #333333;
+  font-size: 12px;
+  line-height: 17px;
+  cursor: pointer;
+  text-align: right;
+}
+
+.call-action-section-modal .call-action-list .call-action-input {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 26px;
+  width: 64px;
+  border: 1px solid #E6E6E6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  color: #333;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 5px 17px 5px 8px;
+  outline: none;
+}
+
 .w-10 {
   width: 10%;
 }

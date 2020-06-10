@@ -219,7 +219,7 @@
 	      <input type="text" class="rule-name-input" placeholder="Enter rule name">
 	    </td>
 	    <td>
-            <span class="hyperlink" data-toggle="modal"  data-target="#billCycle"> Select</span>
+            <span class="hyperlink" data-toggle="modal"  data-target="#callAction"> Select</span>
 	    </td>
 	    <td class="text-right">
 	      <div class="applybtn" (click)="clearfields()">Apply</div>
@@ -261,11 +261,11 @@
 
 
 <!-- Call-cycle modal -->
-<!-- <div class="modal fade counter-modal call-cycle" id="billCycle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade counter-modal call-action-section-modal" id="callAction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="title_modal header_modal">
-        <h2>Periodicity
+        <h2>Call Actions
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="icon-Combined-Shape-Copy-8"></span>
           </button>
@@ -273,63 +273,129 @@
       </div>
       <div class="modal_body">
         <div class="counter_entry_wrap">
-          <ul class="entry_list">
-              <li>
-                <div class="entry_checked">
-                  <label class="for_checkbox">
-                    <input type="radio" name="cycle" class="checkbox">
-                    <div class="custom_checkbox">Hourly</div>
-                  </label>
+          <div class="call-action-list">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="call-action-label"> Continue</div>
+                  </div>
+                  <div class="col-md-6">
+                      <span class="call-action-input-tag">
+                          <input type="text" class="call-action-input">
+                          <span class="call-percent-label">%</span>
+                      </span>
+                  </div>
+              </div>
+          </div>
+          <div class="call-action-list">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="call-action-label"> Connect to Voice Mail </div>
                 </div>
-                <div class="entry_checked">
-                    <label class="for_checkbox">
-                      <input type="radio" name="cycle" class="checkbox">
-                      <div class="custom_checkbox">Daily</div>
-                    </label>
-                  </div>
-                  <div class="entry_checked">
-                    <label class="for_checkbox">
-                      <input type="radio" name="cycle" class="checkbox">
-                      <div class="custom_checkbox">Monthly</div>
-                    </label>
-                  </div>
-                  <div class="entry_checked">
-                    <label class="for_checkbox">
-                      <input type="radio" name="cycle" class="checkbox">
-                      <div class="custom_checkbox">Weekly</div>
-                    </label>
-                  </div>
-                <div class="entry_checked">
-                    <label class="for_checkbox">
-                      <input type="radio" name="cycle" class="checkbox">
-                      <div class="custom_checkbox">n-HourMoving</div>
-                    </label>
-                    <input type="text" class="entry_box" placeholder="Enter">
-                  </div>
-                  <div class="entry_checked">
-                    <label class="for_checkbox">
-                      <input type="radio" name="cycle" class="checkbox">
-                      <div class="custom_checkbox">Bill Cycle</div>
-                    </label>
-                    <div class="select_box_multiple">
-                        <select name="weekDays" id="selectDays1" class="select_dropdown" multiple="multiple" style="display: none;">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                        </select>
-                      </div>
-                  </div>
-              </li>
-          </ul>
+                <div class="col-md-6">
+                    <span class="call-action-input-tag">
+                        <input type="text" class="call-action-input">
+                        <span class="call-percent-label">%</span>
+                    </span>
+                </div>
+            </div>
         </div>
-        <button class="click-to-action save_action_btn" (click)="onSave()">Save</button>
+        <div class="call-action-list">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="call-action-label"> Play Announcement  </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="call-action-input-tag">
+                        <input type="text" class="call-action-input">
+                        <span class="call-percent-label">%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="call-action-list">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="call-action-label"> Connect to Voice Mail  </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="call-action-input-tag">
+                        <input type="text" class="call-action-input">
+                        <span class="call-percent-label">%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="call-action-list">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="call-action-label"> Connect to IVR  </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="call-action-input-tag">
+                        <input type="text" class="call-action-input">
+                        <span class="call-percent-label">%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="call-action-list">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="call-action-label"> Release After ,Seconds  </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="call-action-input-tag">
+                        <input type="text" class="call-action-input">
+                        <span class="call-percent-label">%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="call-action-list">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="call-action-label"> Release cause Random  </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="call-action-input-tag">
+                        <input type="text" class="call-action-input">
+                        <span class="call-percent-label">%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="call-action-list">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="call-action-label"> Release cause congestion  </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="call-action-input-tag">
+                        <input type="text" class="call-action-input">
+                        <span class="call-percent-label">%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="call-action-list">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="call-action-label"> CLI</div>
+                </div>
+                <div class="col-md-6">
+                    <span class="call-action-input-tag">
+                        <input type="text" class="call-action-input">
+                        <span class="call-percent-label">%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <button class="click-to-action save_action_btn" (click)="onSave()">Done</button>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 
 <script type="text/javascript" src='assets/js/jquery-3.5.1.min.js'></script>
