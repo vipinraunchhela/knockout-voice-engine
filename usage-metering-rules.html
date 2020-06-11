@@ -3,6 +3,7 @@
 	<title>voice Engine</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/styles/multiple-select.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link rel="stylesheet" type="text/css" href="assets/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
 </head>
@@ -272,12 +273,12 @@
 	      </div>
 	    </td>
 	    <td data-toggle="modal"  data-target="#todModal"> <span class="hyperlink">Yes</span>
-<!--<app-applicabletime-tod-wod-modal></app-applicabletime-tod-wod-modal>-->
 	    </td>
-	    <td data-toggle="modal" data-target="#counterModal"> <span class="hyperlink">Yes</span>
-<!-- <app-counter-type></app-counter-type>-->
+	    <td > <span class="hyperlink" data-toggle="modal" data-target="#counterModal">Yes</span>
 	    </td>
-	    <td></td>
+	    <td>
+        <input type="text" name="daterange" class="rule-name-input" value="01/01/2020" />
+      </td>
 	    <td>
 	      <div class="applybtn" (click)="clearfields()">Apply</div>
 	      <div class="discard" data-bind="click: hideRule" >Discard</div>
@@ -394,9 +395,24 @@
     </td>
   </tr>
     </tbody>
-	</table>
+  </table>
+  <nav class="tabel-footer">
+    <ul class="pagination">
+      
+      Showing 10 of 230
+      <li class="page-item text-before-pagination"><a class="page-link" href="#"><span class="icon-left-arrow"></span></a></li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">4</a></li>
+      <li class="page-item"><a class="page-link" href="#">5</a></li>
+      <li class="page-item"><a class="page-link" href="#">6</a></li>
+      <li class="page-item"><a class="page-link" href="#"><span class="icon-right-arrow"></span></a></li>
+    </ul>
+  </nav>
   </section>
 </div>
+
 
 
 <!-- bootstrap modal -->
@@ -662,6 +678,8 @@
 <script type="text/javascript" src="assets/js/BsMultiSelect.min.js"></script>
 <script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
 <script type='text/javascript' src='assets/js/knockout-3.5.1.js'></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script type="text/javascript" src="models/usagemeteringModel.js"></script>
 <script>  
   $(function() { 
@@ -673,6 +691,11 @@
     $('[data-toggle="multiselect"]').bsMultiSelect({
       placeholder:'Select'
     });
+    $('input[name="daterange"]').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    timePicker:true
+  }, function(start, end, label) {});
   });
 </script>
 </body>

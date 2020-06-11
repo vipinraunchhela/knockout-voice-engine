@@ -10,7 +10,43 @@ function AppViewModel() {
     self.show =  ko.observable(false);
     self.showFilter = ko.observable(false);
     self.radioSelectedOptionValue = ko.observable("singleNumber");
-    
+    self.singleNumber = ko.observable(true);
+    self.rangeType = ko.observable(false);
+    self.bulkUpload = ko.observable(false);
+    this.range = ko.observableArray([
+        {
+            value: 'singleNumber',
+            rangeName: 'Single Number',
+            id: "singleNumber"
+        },
+        {
+            value: 'rangeType',
+            rangeName: 'Range',
+            id: "rangeType"
+        },
+        {
+            value: 'bulkUpload',
+            rangeName: 'Bulk Upload',
+            id: "bulkUpload"    
+        }
+    ])
+    this.changeActiveLimit = function(val){
+        // if (val == 'singleNumber'){
+        //     this.singleNumber (true);
+        //     this.rangeType (false);
+        //     this.bulkUpload(false);
+        // }
+        // else if(val == 'rangeType'){
+        //     this.singleNumber (false);
+        //     this.rangeType (true);
+        //     this.bulkUpload(false);
+        // }
+        // else{
+        //     this.bulkUpload (true);
+        //     this.singleNumber (false);
+        //     this.rangeType (false);   
+        // }
+    }
       self.showBox = function(){
               self.show(true);
        };
