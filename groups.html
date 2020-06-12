@@ -391,11 +391,32 @@
               <span class="file-name">xyz.csv</span>
               <input type="file" name="photo" id="upload-file" />
             </div>
+            <div class="note">Accepted file types are .CSV and .xlxs</div>
           </div>
           <div class="col-md-5">
-            <button class="btn btn-primary">Upload</button>
+
+            <button class="btn btn-primary" data-bind="visible: hideBtn, click : upload"'>Upload</button>
+            
+            <!-- on uploading process -->
+            <button class="btn btn-primary upload" data-bind="visible: showUploadBtn"><span class="icon-spinner10"></span></button>
+            
+            <!-- after Attachment success -->
+            <span class="success"> <span class="icon-selected"></span> Attachment Successfully</span>
+
+          </div>
+          <div class="col-md-12">
+            <div class="progressbar-section">
+              <div class="text">We are loading your document. You can continue your work.</div>
+              <div class="flex">
+              <div class="progress">
+                <div class="progress-bar" style="width: 10%;" role="progressbar" aria-valuemax="100"></div>
+              </div>
+              <div class="upload-percentage">10% Complete</div>
+            </div>
+          </div>
           </div>
         </div>
+        
         <button class="click-to-action save_action_btn">Okay</button>
       
     </div>
@@ -427,7 +448,7 @@
           </div>
         </div>
         <br/>
-        <button class="click-to-action save_action_btn" (click)="onSave()">Done</button>
+        <button class="click-to-action save_action_btn">Done</button>
       </div>
     </div>
   </div>

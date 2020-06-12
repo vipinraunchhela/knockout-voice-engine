@@ -3,6 +3,8 @@ function AppViewModel() {
     var self = this;
   
     self.addRule = ko.observable(false);
+    self.showUploadBtn = ko.observable(false);
+    self.hideBtn = ko.observable(true);
     self.showSearch = ko.observable(false);
     self.showSelectOptions = ko.observable(false);
     self.prioritypopover = ko.observable(false);
@@ -31,24 +33,14 @@ function AppViewModel() {
         }
     ])
     this.changeActiveLimit = function(val){
-        // if (val == 'singleNumber'){
-        //     this.singleNumber (true);
-        //     this.rangeType (false);
-        //     this.bulkUpload(false);
-        // }
-        // else if(val == 'rangeType'){
-        //     this.singleNumber (false);
-        //     this.rangeType (true);
-        //     this.bulkUpload(false);
-        // }
-        // else{
-        //     this.bulkUpload (true);
-        //     this.singleNumber (false);
-        //     this.rangeType (false);   
-        // }
+     
+    }
+    self.upload = function(){
+      this.showUploadBtn(true);
     }
       self.showBox = function(){
               self.show(true);
+              self.hideBtn(false);
        };
        $("body").on("click", function(){
            self.show(false);

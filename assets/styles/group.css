@@ -51,7 +51,7 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
   line-height: 19px;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .upload-file input[type="file"] {
@@ -59,7 +59,7 @@
 }
 
 .bulk-section {
-  height: 120px;
+  height: 170px;
   padding-top: 20px;
 }
 
@@ -105,5 +105,172 @@
 .single-number input {
   display: block;
   width: 100%;
+}
+
+.modal.delete-numbers .modal-dialog {
+  position: fixed;
+  right: 0;
+  height: 97%;
+  max-width: 800px;
+  width: 800px;
+}
+
+.modal.delete-numbers .modal-dialog .modal_body {
+  padding: 20px 0;
+}
+
+.modal.delete-numbers .modal-dialog .modal-content {
+  height: 100%;
+}
+
+.modal.delete-numbers .modal-dialog .modal-content .title_modal h2 {
+  padding-bottom: 0;
+  border-bottom: 0px solid #E2E1C1;
+  margin-bottom: 0;
+}
+
+.modal.delete-numbers .modal-dialog .modal-content td:first-child {
+  width: 10px;
+}
+
+.modal.delete-numbers .modal-dialog .modal-content .head-row td {
+  background-color: #C3AB7F;
+  color: #fff;
+}
+
+.delete-option {
+  color: #3986FA;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-align: center;
+  float: right;
+  margin-right: 50px;
+  line-height: 33px;
+  cursor: pointer;
+}
+
+.delete-option .disable {
+  opacity: 0.45;
+  cursor: no-drop;
+}
+
+.table-search {
+  margin-left: 10px;
+  height: 30px;
+  font-size: 14px;
+}
+
+.popover-content.delete-list {
+  padding: 20px;
+}
+
+.popover-content.delete-list .btn {
+  border-radius: 4px;
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+}
+
+.popover-content.delete-list .btn-danger {
+  border: 1px solid #E2E1C1;
+  background-color: #FF6161;
+  -webkit-box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.09);
+          box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.09);
+  color: #FFFFFF;
+}
+
+.btn.upload {
+  width: 131px;
+}
+
+.btn.upload .icon-spinner10 {
+  -webkit-animation: rotation 2s;
+          animation: rotation 2s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.note {
+  color: #A5A5A5;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 22px;
+  text-align: left;
+}
+
+.success {
+  color: #1CAA3B;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 17px;
+  white-space: nowrap;
+  line-height: 32px;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+.progressbar-section {
+  border-radius: 4px;
+  background-color: #F8F8F8;
+  color: #333333;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+  padding: 10px;
+}
+
+.progressbar-section .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 8px;
+}
+
+.progressbar-section .progress {
+  display: inline-block;
+  border-radius: 10px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.progressbar-section .progress .progress-bar {
+  height: 100%;
+}
+
+.progressbar-section .upload-percentage {
+  display: inline-block;
 }
 /*# sourceMappingURL=group.css.map */
