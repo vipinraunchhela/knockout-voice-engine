@@ -1,0 +1,939 @@
+<html>
+<head>
+	<title>voice Engine</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/styles/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="assets/styles/multiple-select.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/daterangepicker.css" />
+  <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+</head>
+<body>
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+  <section class="body-container">
+  <h2>Voice Engine
+  <div class="header-dropdown">
+    <span>Home</span>
+    <select>
+      <option>Claro, Argentina</option>
+      <option>America</option>
+    </select>
+  </div>
+  </h2>
+  <div class="tab-view">
+    <ul>
+      <li>Usage Metering Rules(4)</li>
+      <li>Group(4)</li>
+      <li>Allowance(8)</li>
+      <li>Call Action(3)</li>
+      <li class="active">Threshold(4)</li>
+      <li>Whitelist/Blacklist/DND(101)</li>
+    </ul>
+  </div>
+    <div class="filters-row">
+      <div class="search">
+        <input placeholder="search"  data-bind="click: showSearchList, hasfocus: showSearch">
+        <span class="clear-search">x</span>
+        <div class="search-items" data-bind="visible:showSearch">
+          <div class="search-list">
+            <span class="search-heading">Rule (15)</span>
+            <div class="scroll-section" data-bind="foreach:items">
+              <div class="search-list-item" data-bind="text:thresholdName"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="action-items">
+        <div>
+          <span class="test" style="position: relative">
+            <span class="icon-filter" style="position: relative" data-bind="click: showFilterList, clickBubble: false"></span>
+            <div class="arrow"></div>
+            <div class="filter-app"  data-bind="visible:showFilter">
+                <div class="row m-0">
+                  <div class="col-md-12 pl-0 pr-0">
+                    <p class="heading-filter">Filter</p>
+                  </div>
+                  <div class="col-md-5 pl-0 pr-0">
+                    <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab"
+                           id="first-tab"
+                           href="#first" role="tab"
+                           aria-selected="true">Allowance Name</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab"
+                           id="second-tab"
+                           href="#second" role="tab"
+                           aria-selected="true">Periodicity</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-7 pl-0 pr-0">
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active"
+                           id="first" role="tabpanel">
+                        <div class="row m-0 pt-3 position-relative">
+                          <input class="form-control" type="text" placeholder="Search by Name"/>
+                          <span class="icon-search"></span>
+                        </div>
+          
+                        <!--Multi Select Template-->
+          
+                        <div class="filter-attribute">
+                          <div class="position-relative">
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check1"
+                               name="checkbox">
+                        <label for="check1" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check2"
+                               name="checkbox">
+                        <label for="check2" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check3"
+                               name="checkbox">
+                        <label for="check3" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check4"
+                               name="checkbox">
+                        <label for="check4" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check5"
+                               name="checkbox">
+                        <label for="check5" class="custom-control-label cursor-pointer">
+                        <span class="label-item">A1233</span>
+                        </label>
+                        </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          
+                      <div class="tab-pane fade show"
+                           id="second" role="tabpanel">
+                        <div class="row m-0 pt-3 position-relative">
+                          <input class="form-control" type="text" placeholder="Search by Name"/>
+                          <span class="icon-search"></span>
+                        </div>
+          
+                        <!--Multi Select Template-->
+          
+                        <div class="filter-attribute">
+                          <div class="position-relative">
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check11"
+                               name="checkbox">
+                        <label for="check11" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check21"
+                               name="checkbox">
+                        <label for="check21" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check31"
+                               name="checkbox">
+                        <label for="check31" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check41"
+                               name="checkbox">
+                        <label for="check41" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                            <div class="row m-0 filter-attribute-item">
+                        <span class="custom-checkbox cursor-pointer">
+                        <input type="checkbox" class="custom-control-input cursor-pointer" id="check51"
+                               name="checkbox">
+                        <label for="check51" class="custom-control-label cursor-pointer">
+                        <span class="label-item">B1233</span>
+                        </label>
+                        </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter-footer">
+                    <button
+                            class="btn btn-primary ml-3 text-center font-weight-bold position-relative">
+                      Apply
+                    </button>
+                    <button class="btn btn-primary btn-transparent  font-weight-bold text-center">
+                      Clear All
+                    </button>
+                  </div>
+                </div>
+            </div>
+          
+          </span>
+        </div>
+        <div class="click-to-action" data-bind="click: showRule">Add Rules</div>
+      </div>
+    </div>
+  <table class="table">
+	  <tr class="head-row">
+	    <th><span class="shorting">Threshold Name <span class="icon-sort"></span></span></th>
+	    <th>Originating Calls</th>
+	    <th>Terminating Calls</th>
+	    <th><span class="shorting">Originating Minutes <span class="icon-sort"></span></span></th>
+	    <th><span class="shorting">Terminating Minutes <span class="icon-sort"></span></span></th>
+	    <th></th>
+	  </tr>
+	  <!--  edit mode-->
+	  <tr data-bind="visible:addRule">
+	    <td>
+	      <input type="text" class="rule-name-input" placeholder="Enter Threshold name">
+	    </td>
+	    <td>
+            <span class="hyperlink" data-toggle="modal"  data-target="#threshold"> Add Level(s)</span>
+	    </td>
+	    <td>
+            <span class="hyperlink" data-toggle="modal"  data-target="#threshold"> Add Level(s)</span>
+	    </td>
+	    <td>
+            <span class="hyperlink" data-toggle="modal"  data-target="#threshold"> Add Level(s)</span>
+	    </td>
+	    <td>
+            <span class="hyperlink" data-toggle="modal"  data-target="#threshold"> Add Level(s)</span>
+	    </td>
+	    <td class="text-right">
+	      <div class="applybtn" (click)="clearfields()">Apply</div>
+	      <div class="discard" data-bind="click: hideRule" >Discard</div>
+	    </td>
+	  </tr>
+	  <tbody data-bind="foreach: items">
+    <tr>
+      <td>
+        <div class="rule-name"
+             data-bind="text:thresholdName"></div>
+        <div class="created-date">Edited By <span data-bind="text:editedBy"></span>, <span data-bind="text:editedDate"></span></div>
+      </td>
+    <td>
+      <span class="hyperlink"
+            data-bind="text:originatingCalls"
+            data-custom-class="tooltip-custom"
+            data-html="true"
+            data-placement="right"
+            data-toggle="tooltip"
+            title='<div class="tooltip-threshold">
+    <h5>Originating Calls</h5>
+    <ul class="tooltip-list">
+        <li>
+            <div class="first-column">
+                <div class="level-text">
+                    Level 1: 80%
+                </div>
+                <div class="heading-group">
+                    <div class="heading"> SMS to Subscriber</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> SMS to Admin</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+                <div class="heading-group">
+                    <div class="heading"> Email to Admin</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> Announcement : Yes</div>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> Call Action: CA-2211</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="first-column">
+                <div class="level-text">
+                    Level 1: 80%
+                </div>
+                <div class="heading-group">
+                    <div class="heading"> SMS to Subscriber</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> SMS to Admin</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+                <div class="heading-group">
+                    <div class="heading"> Email to Admin</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> Announcement : Yes</div>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> Call Action: CA-2211</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="first-column">
+                <div class="level-text">
+                    Level 1: 80%
+                </div>
+                <div class="heading-group">
+                    <div class="heading"> SMS to Subscriber</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> SMS to Admin</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+                <div class="heading-group">
+                    <div class="heading"> Email to Admin</div>
+                    <span class="sub-text">SMS-2200</span>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> Announcement : Yes</div>
+                </div>
+
+                <div class="heading-group">
+                    <div class="heading"> Call Action: CA-2211</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>'
+        >allowanceThreshold</span>
+
+    </td>
+    <td>
+        <span class="hyperlink"
+        data-bind="text:terminatingCalls"
+        data-custom-class="tooltip-custom"
+        data-html="true"
+        data-placement="right"
+        data-toggle="tooltip"
+        title='<div class="tooltip-threshold">
+<h5>Originating Calls</h5>
+<ul class="tooltip-list">
+    <li>
+        <div class="first-column">
+            <div class="level-text">
+                Level 1: 80%
+            </div>
+            <div class="heading-group">
+                <div class="heading"> SMS to Subscriber</div>
+                <span class="sub-text">SMS-2200</span>
+            </div>
+
+            <div class="heading-group">
+                <div class="heading"> SMS to Admin</div>
+                <span class="sub-text">SMS-2200</span>
+            </div>
+            <div class="heading-group">
+                <div class="heading"> Email to Admin</div>
+                <span class="sub-text">SMS-2200</span>
+            </div>
+
+            <div class="heading-group">
+                <div class="heading"> Announcement : Yes</div>
+            </div>
+
+            <div class="heading-group">
+                <div class="heading"> Call Action: CA-2211</div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="first-column">
+            <div class="level-text">
+                Level 1: 80%
+            </div>
+            <div class="heading-group">
+                <div class="heading"> SMS to Subscriber</div>
+                <span class="sub-text">SMS-2200</span>
+            </div>
+
+            <div class="heading-group">
+                <div class="heading"> SMS to Admin</div>
+                <span class="sub-text">SMS-2200</span>
+            </div>
+            <div class="heading-group">
+                <div class="heading"> Email to Admin</div>
+                <span class="sub-text">SMS-2200</span>
+            </div>
+
+            <div class="heading-group">
+                <div class="heading"> Announcement : Yes</div>
+            </div>
+
+            <div class="heading-group">
+                <div class="heading"> Call Action: CA-2211</div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>'></span>
+  
+      </td>
+      <td>
+        <span class="hyperlink" data-bind="text:originatingDuration"></span>
+  
+      </td>
+      <td>
+        <span class="hyperlink" data-bind="text:terminatingDuration"></span>
+  
+      </td>
+    <td class="relative text-right">
+      <span class="icon-action_dots">
+
+        <div class="custom-popover">
+        <div><span class="hyperlink">Edit</span></div>
+        <div><span class="hyperlink" >Delete</span></div>
+        <div class="toggle-switch">
+          <div>Inactive</div>
+          <div class="switch_button custom">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div></div>Active
+        </div>
+      </div>
+      </span>
+    </td>
+  </tr>
+    </tbody>
+    </table>
+    <nav class="tabel-footer">
+        <ul class="pagination">
+          
+          Showing 10 of 230
+          <li class="page-item text-before-pagination"><a class="page-link" href="#"><span class="icon-left-arrow"></span></a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">5</a></li>
+          <li class="page-item"><a class="page-link" href="#">6</a></li>
+          <li class="page-item"><a class="page-link" href="#"><span class="icon-right-arrow"></span></a></li>
+        </ul>
+      </nav>
+  </section>
+</div>
+
+
+<!-- Threshold modal -->
+<div class="fade counter-modal threshold-modal modal left" id="threshold" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="content-section" data-bind="visible: showEmpty">
+      <div class="title_modal header_modal">
+        <h2>Threshold Levels
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="icon-Combined-Shape-Copy-8"></span>
+          </button>
+        </h2>
+      </div>
+      <div class="threshold_modal_body">
+        <section class="threshold-tag">
+            <div class="tab-view">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#home">Originating Calls(0)</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu1">Terminating Calls(0)</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu2">Originating Minutes(0)</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu3">Originating Minutes(0)</a>
+                </li>
+              </ul>
+            </div>
+              <div class="filters-row text-right">
+                <div class="action-item-rule">
+                  <div class="click-to-action">Add Level</div>
+                </div>
+              </div>
+              <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <span   data-bind="visible:showTableData">
+                    <table class="table">
+                        <tr class="head-row">
+                          <th><span class="shorting">Level <span class="icon-sort"></span></span></th>
+                          <th>Threshold %</th>
+                          <th>Administrative Action</th>
+                          <th><span class="shorting">Announcement <span class="icon-sort"></span></span></th>
+                          <th><span class="shorting">Call Action <span class="icon-sort"></span></span></th>
+                          <th></th>
+                        </tr>
+                        <tbody data-bind="foreach: levelItems">
+                      <tr>
+                        <td>
+                          <div class="rule-name"
+                               data-bind="text:level"></div>
+                        </td>
+                      <td>
+                        <span data-bind="text:threshold"></span>
+                  
+                      </td>
+                      <td>
+                          <span data-bind="text:adminAction"></span>
+                    
+                        </td>
+                        <td>
+                          <span data-bind="text:announcement"></span>
+                    
+                        </td>
+                        <td>
+                          <span data-bind="text:callAction"></span>
+                    
+                        </td>
+                      <td class="relative text-right">
+                        <span class="icon-action_dots">
+                  
+                          <div class="custom-popover">
+                          <div><span class="hyperlink">Edit</span></div>
+                          <div><span class="hyperlink" >Delete</span></div>
+                          <div class="toggle-switch">
+                            <div>Inactive</div>
+                            <div class="switch_button custom">
+                              <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                            <div></div>Active
+                          </div>
+                        </div>
+                        </span>
+                      </td>
+                    </tr>
+                      </tbody>
+                      </table>
+                      <nav class="tabel-footer">
+                        <ul class="pagination">
+                          
+                          Showing 10 of 230
+                          <li class="page-item text-before-pagination"><a class="page-link" href="#"><span class="icon-left-arrow"></span></a></li>
+                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">4</a></li>
+                          <li class="page-item"><a class="page-link" href="#">5</a></li>
+                          <li class="page-item"><a class="page-link" href="#">6</a></li>
+                          <li class="page-item"><a class="page-link" href="#"><span class="icon-right-arrow"></span></a></li>
+                        </ul>
+                      </nav>
+                    </span>
+                <div class="no-data" data-bind="visible: showNoData">
+                    <p class="text-nodata">No threshold level added yet</p>
+                    <span><span class="add-level" data-bind="click: showForm">Add</span> your first threshold template now</span>
+                </div>
+                    </div>
+                <div class="tab-pane fade" id="menu1">
+                    <table class="table">
+                        <tr class="head-row">
+                          <th><span class="shorting">Level <span class="icon-sort"></span></span></th>
+                          <th>Threshold %</th>
+                          <th>Administrative Action</th>
+                          <th><span class="shorting">Announcement <span class="icon-sort"></span></span></th>
+                          <th><span class="shorting">Call Action <span class="icon-sort"></span></span></th>
+                          <th></th>
+                        </tr>
+                        <tbody data-bind="foreach: levelItems">
+                      <tr>
+                        <td>
+                          <div class="rule-name"
+                               data-bind="text:level"></div>
+                        </td>
+                      <td>
+                        <span data-bind="text:threshold"></span>
+                  
+                      </td>
+                      <td>
+                          <span data-bind="text:adminAction"></span>
+                    
+                        </td>
+                        <td>
+                          <span data-bind="text:announcement"></span>
+                    
+                        </td>
+                        <td>
+                          <span data-bind="text:callAction"></span>
+                    
+                        </td>
+                      <td class="relative text-right">
+                        <span class="icon-action_dots">
+                  
+                          <div class="custom-popover">
+                          <div><span class="hyperlink">Edit</span></div>
+                          <div><span class="hyperlink" >Delete</span></div>
+                          <div class="toggle-switch">
+                            <div>Inactive</div>
+                            <div class="switch_button custom">
+                              <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                            <div></div>Active
+                          </div>
+                        </div>
+                        </span>
+                      </td>
+                    </tr>
+                      </tbody>
+                      </table>
+                </div>
+                <div class="tab-pane fade" id="menu2">
+                    <table class="table">
+                        <tr class="head-row">
+                          <th><span class="shorting">Level <span class="icon-sort"></span></span></th>
+                          <th>Threshold %</th>
+                          <th>Administrative Action</th>
+                          <th><span class="shorting">Announcement <span class="icon-sort"></span></span></th>
+                          <th><span class="shorting">Call Action <span class="icon-sort"></span></span></th>
+                          <th></th>
+                        </tr>
+                        <tbody data-bind="foreach: levelItems">
+                      <tr>
+                        <td>
+                          <div class="rule-name"
+                               data-bind="text:level"></div>
+                        </td>
+                      <td>
+                        <span data-bind="text:threshold"></span>
+                  
+                      </td>
+                      <td>
+                          <span data-bind="text:adminAction"></span>
+                    
+                        </td>
+                        <td>
+                          <span data-bind="text:announcement"></span>
+                    
+                        </td>
+                        <td>
+                          <span data-bind="text:callAction"></span>
+                    
+                        </td>
+                      <td class="relative text-right">
+                        <span class="icon-action_dots">
+                  
+                          <div class="custom-popover">
+                          <div><span class="hyperlink">Edit</span></div>
+                          <div><span class="hyperlink" >Delete</span></div>
+                          <div class="toggle-switch">
+                            <div>Inactive</div>
+                            <div class="switch_button custom">
+                              <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                            <div></div>Active
+                          </div>
+                        </div>
+                        </span>
+                      </td>
+                    </tr>
+                      </tbody>
+                      </table>
+                </div>
+                <div class="tab-pane fade" id="menu3">
+                    <table class="table">
+                        <tr class="head-row">
+                          <th><span class="shorting">Level <span class="icon-sort"></span></span></th>
+                          <th>Threshold %</th>
+                          <th>Administrative Action</th>
+                          <th><span class="shorting">Announcement <span class="icon-sort"></span></span></th>
+                          <th><span class="shorting">Call Action <span class="icon-sort"></span></span></th>
+                          <th></th>
+                        </tr>
+                        <tbody data-bind="foreach: levelItems">
+                      <tr>
+                        <td>
+                          <div class="rule-name"
+                               data-bind="text:level"></div>
+                        </td>
+                      <td>
+                        <span data-bind="text:threshold"></span>
+                  
+                      </td>
+                      <td>
+                          <span data-bind="text:adminAction"></span>
+                    
+                        </td>
+                        <td>
+                          <span data-bind="text:announcement"></span>
+                    
+                        </td>
+                        <td>
+                          <span data-bind="text:callAction"></span>
+                    
+                        </td>
+                      <td class="relative text-right">
+                        <span class="icon-action_dots">
+                  
+                          <div class="custom-popover">
+                          <div><span class="hyperlink">Edit</span></div>
+                          <div><span class="hyperlink" >Delete</span></div>
+                          <div class="toggle-switch">
+                            <div>Inactive</div>
+                            <div class="switch_button custom">
+                              <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                            <div></div>Active
+                          </div>
+                        </div>
+                        </span>
+                      </td>
+                    </tr>
+                      </tbody>
+                      </table>
+                </div>
+              </div>
+            <!-- <table class="table">
+                <tr class="head-row">
+                  <th><span class="shorting">Level <span class="icon-sort"></span></span></th>
+                  <th>Threshold %</th>
+                  <th>Administrative Action</th>
+                  <th><span class="shorting">Announcement <span class="icon-sort"></span></span></th>
+                  <th><span class="shorting">Call Action <span class="icon-sort"></span></span></th>
+                  <th></th>
+                </tr>
+                <tbody data-bind="foreach: levelItems">
+              <tr>
+                <td>
+                  <div class="rule-name"
+                       data-bind="text:level"></div>
+                </td>
+              <td>
+                <span data-bind="text:threshold"></span>
+          
+              </td>
+              <td>
+                  <span data-bind="text:adminAction"></span>
+            
+                </td>
+                <td>
+                  <span data-bind="text:announcement"></span>
+            
+                </td>
+                <td>
+                  <span data-bind="text:callAction"></span>
+            
+                </td>
+              <td class="relative text-right">
+                <span class="icon-action_dots">
+          
+                  <div class="custom-popover">
+                  <div><span class="hyperlink">Edit</span></div>
+                  <div><span class="hyperlink" >Delete</span></div>
+                  <div class="toggle-switch">
+                    <div>Inactive</div>
+                    <div class="switch_button custom">
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <div></div>Active
+                  </div>
+                </div>
+                </span>
+              </td>
+            </tr>
+              </tbody>
+              </table> -->
+            </section>
+        </div>
+        </div>
+        <div class="threshold-form" data-bind="visible: showLevelForm">
+            <div class="title_modal header_modal">
+                <h2><span class="rotate"><span class="icon-arrow_white"></span></span>Threshold Levels for Originating Call
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="icon-Combined-Shape-Copy-8"></span>
+                  </button>
+                </h2>
+              </div>
+              <div class="modal_body_tag row">
+                <div class="counter_entry_wrap col-md-7">
+                  <div class="threshold-list">
+                      <div class="flex-action">
+                          <div class="label-col">
+                              <div class="level-label"> <span class="bold-tag">Level 1 :</span> Threshold</div>
+                          </div>
+                          <div class="input-col">
+                              <span class="call-action-input-tag">
+                                  <input type="text" class="call-action-input">
+                                  <span class="call-percent-label">%</span>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="notification-section">
+                      <h5>Notifications</h5>
+                      <div class="notification-box">
+                        <div class="flex-action">
+                            <div class="label-col">
+                                <div class="level-label">Send SMS to Subscriber</div>
+                            </div>
+                            <div class="input-col">
+                                <select>
+                                    <option value="" selected>select</option>
+                                    <option>Claro, Argentina</option>
+                                    <option>America</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="flex-action">
+                            <div class="label-col">
+                                <div class="level-label">Send SMS to Adminstrator</div>
+                            </div>
+                            <div class="input-col">
+                                <select>
+                                    <option value="" selected>select</option>
+                                    <option>Claro, Argentina</option>
+                                    <option>America</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="flex-action">
+                            <div class="label-col">
+                                <div class="level-label">Send Email to Adminstrator</div>
+                            </div>
+                            <div class="input-col">
+                                <select>
+                                    <option value="" selected>select</option>
+                                    <option>Claro, Argentina</option>
+                                    <option>America</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="flex-action">
+                            <div class="label-col">
+                                <div class="level-label">Play Announcement</div>
+                            </div>
+                            <div class="input-col">
+                                <select>
+                                    <option value="" selected>select</option>
+                                    <option>Claro, Argentina</option>
+                                    <option>America</option>
+                                  </select>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="notification-section">
+                    <h5>Call Action Template</h5>
+                    <div class="notification-box">
+                      <div class="flex-action flex-column">
+                          <div class="label-col">
+                              <div class="level-label">Send SMS to Subscriber</div>
+                          </div>
+                          <div class="input-col">
+                              <select>
+                                  <option value="" selected>select</option>
+                                  <option>Claro, Argentina</option>
+                                  <option>America</option>
+                                </select>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="filter-footer">
+                    <button
+                            class="btn btn-primary ml-3 text-center font-weight-bold position-relative" data-bind="click: showTable">
+                      Add Level
+                    </button>
+                    <button class="btn btn-primary btn-transparent  font-weight-bold text-center"  data-dismiss="modal">
+                      Discard
+                    </button>
+                  </div>
+                  </div>
+                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript" src='assets/js/jquery-3.5.1.min.js'></script>
+<script src="assets/js/popper.min.js"></script>
+<!-- <script type="text/javascript" src="assets/scripts/multiple-select.min.js"></script> -->
+<script type="text/javascript" src="assets/js/BsMultiSelect.min.js"></script>
+<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
+<script type="text/javascript" src='scripts/custom-tooltip.js'></script>
+<script type='text/javascript' src='assets/js/knockout-3.5.1.js'></script>
+<script type="text/javascript" src="models/thresholdModel.js"></script>
+<script>  
+  $(function() { 
+    $('[data-toggle="tooltip"]').tooltip();
+    $("#selectDays").bsMultiSelect({
+      placeholder:'Select Days',
+    });
+
+    $("#selectDays1").bsMultiSelect({
+      placeholder:'Select Days',
+    });
+
+    $('[data-toggle="multiselect"]').bsMultiSelect({
+      placeholder:'Select'
+    });
+  });
+</script>
+</body>
+</html>

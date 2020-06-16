@@ -108,12 +108,8 @@
 }
 
 .modal.delete-numbers .modal-dialog {
-  position: fixed;
-  right: 0;
-  height: 100%;
-  max-width: 50%;
-  width: 50%;
-  margin: 0;
+  max-width: 617px;
+  width: 617px;
 }
 
 .modal.delete-numbers .modal-dialog .modal_body {
@@ -159,8 +155,12 @@
 
 .table-search {
   margin-left: 10px;
-  height: 30px;
+  height: 26px;
+  padding: 5px;
   font-size: 14px;
+  border: 1px solid #E6E6E6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
 }
 
 .popover-content.delete-list {
@@ -274,4 +274,71 @@
 .progressbar-section .upload-percentage {
   display: inline-block;
 }
-/*# sourceMappingURL=group.css.map */
+
+.color-hyperlink {
+  color: #3986FA;
+  cursor: pointer;
+}
+
+.blacklist-section .action-items {
+  width: 185px;
+}
+
+.single-action textarea {
+  border: 1px solid #E6E6E6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  width: 265px;
+  font-size: 12px;
+  color: #a5a5a5;
+  padding: 10px 12px;
+}
+
+.single-action .action-box {
+  border-radius: 4px;
+  background-color: #F1F1F1;
+  padding: 12px 0;
+  margin-top: 18px;
+}
+
+.single-action .action-box .flex-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 265px;
+}
+
+.single-action .action-box .flex-head .optional {
+  color: #A5A5A5;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.single-action .action-box .single-number {
+  padding: 0;
+  height: auto;
+}
+
+.single-action .action-box .single-number .tags {
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+}
+
+.single-action .action-box .single-number input {
+  padding: 0 12px;
+}
+
+.single-action .action-box .action-heading {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 17px;
+  margin-bottom: 5px;
+  display: block;
+}
+/*# sourceMappingURL=bl-wl-dnd.css.map */

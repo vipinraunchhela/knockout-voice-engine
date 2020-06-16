@@ -93,9 +93,10 @@
     .modal-dialog {
       position: fixed;
       right: 0;
-      height: 97%;
-      max-width: 800px;
-      width: 800px;
+      height: 100%;
+      max-width: 50%;
+      width: 50%;
+      margin: 0;
       .modal_body{
         padding:20px 0;
       }
